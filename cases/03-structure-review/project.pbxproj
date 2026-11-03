@@ -1,0 +1,2 @@
+// Minimal fixture marker for an iOS/Xcode repository.
+// The accessed API entry intentionally omits NSPrivacyAccessedAPITypeReasons.
