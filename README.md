@@ -26,9 +26,33 @@ A privacy-manifest preflight should distinguish between:
 
 AccessVerdict does not claim to reproduce App Review.
 
-## Try a repository preflight
+## Try the cases locally with the AccessVerdict CLI
 
-Connect a repository using the read-only web preflight:
+The CLI runs the deterministic preflight on your machine. It does not upload repository source code to AccessVerdict.
+
+```bash
+npx @accessverdict/cli scan ./cases/01-missing-manifest
+```
+
+Try the clean case:
+
+```bash
+npx @accessverdict/cli scan ./cases/05-clean
+```
+
+For review-only findings such as SDK inventory, use strict mode if you want a non-zero CI exit:
+
+```bash
+npx @accessverdict/cli scan ./cases/04-sdk-review --strict
+```
+
+The CLI reports only bounded static repository evidence. A clean result is not a guarantee of App Store approval.
+
+The CLI sends only minimal anonymous usage telemetry: a random installation id, CLI version, outcome class, and whether `--json` or `--strict` was used. It does not send repository names, paths, filenames, source code, or finding text. Set `DO_NOT_TRACK=1` or `ACCESSVERDICT_TELEMETRY=0` to disable it.
+
+## Try the web preflight
+
+Prefer a browser and GitHub connection? Use the read-only web preflight:
 
 https://accessverdict.dev/app-store-preflight?utm_source=github&utm_medium=referral&utm_campaign=privacy_preflight_cases
 
