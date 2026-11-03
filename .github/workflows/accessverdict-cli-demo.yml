@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
 
       - name: Clean case should pass
         run: npx --yes @accessverdict/cli@0.2.2 scan ./cases/05-clean
