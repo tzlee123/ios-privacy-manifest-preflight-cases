@@ -1,0 +1,5 @@
+platform :ios, '17.0'
+
+target 'PrivacyFixture' do
+  pod 'Alamofire'
+end
