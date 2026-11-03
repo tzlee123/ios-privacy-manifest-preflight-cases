@@ -12,6 +12,8 @@ permissions:
 jobs:
   preflight-demo:
     runs-on: ubuntu-latest
+    env:
+      DO_NOT_TRACK: "1"
     timeout-minutes: 5
     steps:
       - name: Checkout
