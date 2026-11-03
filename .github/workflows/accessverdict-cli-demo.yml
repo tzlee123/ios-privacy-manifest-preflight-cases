@@ -23,13 +23,13 @@ jobs:
           node-version: 24
 
       - name: Clean case should pass
-        run: npx --yes @accessverdict/cli@0.2.2 scan ./cases/05-clean
+        run: npx --yes @accessverdict/cli@0.2.3 scan ./cases/05-clean
 
       - name: Missing-manifest case should report a blocker
         shell: bash
         run: |
           set +e
-          npx --yes @accessverdict/cli@0.2.2 scan ./cases/01-missing-manifest
+          npx --yes @accessverdict/cli@0.2.3 scan ./cases/01-missing-manifest
           code=$?
           set -e
 
