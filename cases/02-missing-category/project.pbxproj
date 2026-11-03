@@ -1,0 +1,2 @@
+// Minimal fixture marker for an iOS/Xcode repository.
+// PrivacyInfo.xcprivacy exists, but the UserDefaults category is absent.
