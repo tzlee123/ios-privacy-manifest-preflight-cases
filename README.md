@@ -1,5 +1,7 @@
 # iOS Privacy Manifest Preflight Cases
 
+[![AccessVerdict CLI Demo](https://github.com/tzlee123/ios-privacy-manifest-preflight-cases/actions/workflows/accessverdict-cli-demo.yml/badge.svg)](https://github.com/tzlee123/ios-privacy-manifest-preflight-cases/actions/workflows/accessverdict-cli-demo.yml)
+
 Minimal synthetic cases for understanding App Store privacy-manifest preflight findings.
 
 The cases cover `PrivacyInfo.xcprivacy`, app-owned Required-Reason API signals, and Apple-listed SDK dependency review.
@@ -47,6 +49,15 @@ npx @accessverdict/cli scan ./cases/04-sdk-review --strict
 ```
 
 The CLI reports only bounded static repository evidence. A clean result is not a guarantee of App Store approval.
+
+## CI example
+
+This repository runs the public CLI in GitHub Actions on every push and pull request. The workflow verifies two behaviors:
+
+- `cases/05-clean` exits successfully;
+- `cases/01-missing-manifest` returns blocker exit code `2`.
+
+See `.github/workflows/accessverdict-cli-demo.yml` for a minimal CI integration you can copy into another repository.
 
 The CLI sends only minimal anonymous usage telemetry: a random installation id, CLI version, outcome class, and whether `--json` or `--strict` was used. It does not send repository names, paths, filenames, source code, or finding text. Set `DO_NOT_TRACK=1` or `ACCESSVERDICT_TELEMETRY=0` to disable it.
 
