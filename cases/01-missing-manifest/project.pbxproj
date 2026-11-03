@@ -1,0 +1,2 @@
+// Minimal fixture marker for an iOS/Xcode repository.
+// This is intentionally not a complete buildable Xcode project.
