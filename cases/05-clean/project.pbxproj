@@ -1,0 +1,2 @@
+// Minimal fixture marker for an iOS/Xcode repository.
+// This case is designed to produce no current blocker finding for UserDefaults.
