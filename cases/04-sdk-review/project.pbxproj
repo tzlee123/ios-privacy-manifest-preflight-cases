@@ -1,0 +1,2 @@
+// Minimal fixture marker for an iOS/Xcode repository.
+// Podfile contains an Apple-listed SDK name for dependency review.
