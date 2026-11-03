@@ -1,0 +1,42 @@
+name: AccessVerdict CLI Demo
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight-demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Clean case should pass
+        run: npx --yes @accessverdict/cli@0.2.2 scan ./cases/05-clean
+
+      - name: Missing-manifest case should report a blocker
+        shell: bash
+        run: |
+          set +e
+          npx --yes @accessverdict/cli@0.2.2 scan ./cases/01-missing-manifest
+          code=$?
+          set -e
+
+          if [ "$code" -ne 2 ]; then
+            echo "Expected AccessVerdict blocker exit code 2, got $code"
+            exit 1
+          fi
+
+          echo "Expected blocker confirmed."
